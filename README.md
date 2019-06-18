@@ -1,52 +1,27 @@
-# Front-end Developer Test Assignment
+# CresditstarFrontendAssignment
 
-The objective of this assignment is to familiarise with the style, quality and level of the code produced by the front-end developer.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.0.3.
 
-We assume that interested applicants would be able to complete the test within few days.
+## Development server
 
-Once the test is completed please forward the results to <it.career@creditstar.com>.
+Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-## Assignment
+## Code scaffolding
 
-Create a simple single page application with fixed-date loan repayment calculator.
+Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
-As an example you could use existing calculator at https://www.creditstar.co.uk/ homepage.
+## Build
 
-**Calculator must have these input fields:**
+Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
 
-1. Loan amount (eg. 1000.00 EUR)
+## Running unit tests
 
-2. Loan period (eg. 5 months)
+Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-3. Loan repayment date (eg. every 31st day of the month)
+## Running end-to-end tests
 
-**Calculator should display:**
+Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
 
-1. Number of instalments
+## Further help
 
-2. Date of each instalment
-
-4. Amount of each instalment
-
-4. Interest part of each instalment
-
-Assume that the interest rate is fixed: 25% (per annum)
-
-## Requirements
-* Use any available front-end libraries or frameworks of your choice.
-* Provide a link to a Github or Bitbucket code repository.
-* Provide application installation/deployment instructions.
-* Application should be responsive and mobile-friendly.
-* Finished code should be production ready.
-
-## Bonus
-* Add some unit testing code coverage for the main calculator functionality.
-
-## Evaluation Criteria
-
-* Code functionality, documentation, formatting, readability and quality.
-* Usage of available tools, libraries and frameworks.
-* Git usage. How commits are created and commented. We want to see the process of the work.
-
-
-Should any technical questions arise feel free to contact: <it.career@creditstar.com>
+To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
