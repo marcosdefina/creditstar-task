@@ -1,0 +1,45 @@
+<template>
+  <div class="calculator">
+    <div class="title">
+      <p>João Alfredo</p>
+    </div>
+    <div class="loan-slider">
+      <div class="item-aligner">
+        <p>Amount</p>
+        <p>$23</p>
+        <i>GI</i>
+        <i>GI</i>
+      </div>
+      <div class="slider">
+        <div class="slide-bar"></div>
+        <div class="slide-pin"></div>
+      </div>
+    </div>
+    <div class="time-slider">
+      <div class="item-aligner">
+        <p>Period</p>
+        <p>2Mth</p>
+        <i>GI</i>
+        <i>GI</i>
+      </div>
+      <div class="slider">
+        <div class="slide-bar"></div>
+        <div class="slide-pin2"></div>
+      </div>
+    </div>
+    <div class="day-picker"></div>
+  </div>
+</template>
+
+<script>
+export default {
+  name: "Calculator",
+  props: {
+    msg: String
+  }
+};
+</script>
+
+<!-- Add "scoped" attribute to limit CSS to this component only -->
+<style src="./styles/calculator.css">
+</style>

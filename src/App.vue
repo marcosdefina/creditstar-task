@@ -12,7 +12,7 @@
 
 <script>
 import HelloWorld from "./components/HelloWorld.vue";
-import Calculator from "./components/Calculator.vue";
+import Calculator from "./components/Calculator/Calculator.vue";
 
 export default {
   name: "app",
