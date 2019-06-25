@@ -119,3 +119,15 @@ $darker_grey: #9b9b9b;
   transform: translate(80px,-15px)
 }
 
+.slider2 {
+  width: 300px;
+  height: 300px;
+  display: flex;
+  overflow-x: auto;
+}
+.slide2 {
+  width: 300px;
+  flex-shrink: 0;
+  height: 100%;
+}
+

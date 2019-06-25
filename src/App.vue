@@ -6,18 +6,18 @@
     <Calculator></calculator>
 
     <img id="logo" alt="logo" src="./assets/logo.svg">
-    <HelloWorld msg="Welcome to Credit Star"/>
+    <Landing msg="Welcome to Credit Star"/>
   </div>
 </template>
 
 <script>
-import HelloWorld from "./components/HelloWorld.vue";
+import Landing from "./components/Landing.vue";
 import Calculator from "./components/Calculator/Calculator.vue";
 
 export default {
   name: "app",
   components: {
-    HelloWorld,
+    Landing,
     Calculator,
   }
 };

@@ -10,9 +10,9 @@
         <i>GI</i>
         <i>GI</i>
       </div>
-      <div class="slider">
+      <div class="slider" v-on:click="incrementSlide">
         <div class="slide-bar"></div>
-        <div class="slide-pin"></div>
+        <div class="slide-pin" v-bind:style="styleTest"></div>
       </div>
     </div>
     <div class="time-slider">
@@ -34,10 +34,20 @@
 <script>
 export default {
   name: "Calculator",
-  props: {
-    msg: String
+  data() {
+    return {
+      styleTest: "transform: translate(" + translate_bar + "px,-15px)"
+    };
+  },
+  methods: {
+    incrementSlide() {
+      this.translate_bar += 30;
+      if (this.translate_bar > 160) this.translate_bar = -160;
+    }
   }
 };
+
+var translate_bar = -30;
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
