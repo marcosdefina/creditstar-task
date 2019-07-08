@@ -3,54 +3,47 @@
     <div class="title">
       <p>João Alfredo</p>
     </div>
-    <VueSlideBar
-      class="loan-slider" 
-      v-model="loan"
-      :min="100"
-      :max="700"
-      :processStyle="slider.processStyle"
-      :lineHeight="slider.lineHeight"
-      :tooltipStyles="{ backgroundColor: 'red', borderColor: 'red' }"
-      />
-    <VueSlideBar 
-      class="time-slider" 
-      v-model="time"
-      :min="1"
-      :max="16"
-      :processStyle="slider.processStyle"
-      :lineHeight="slider.lineHeight"
-      :tooltipStyles="{ backgroundColor: 'red', borderColor: 'red' }"
-      />
-    <!--<div class="loan-slider">
+    <div class="loan-slider">
       <div class="item-aligner">
         <p>Amount</p>
-        <p>$23</p>
+        <p>{{loan}} €</p>
         <i>GI</i>
         <i>GI</i>
       </div>
-      <div class="slider" v-on:click="incrementSlide">
-        <div class="slide-bar"></div>
-        <div class="slide-pin" v-bind:style="styleTest"></div>
-      </div>
+      <VueSlideBar
+        v-model="loan"
+        :data="slider.loanSteps"
+        :min="100"
+        :max="700"
+        :processStyle="slider.processStyle"
+        :lineHeight="slider.lineHeight"
+        :tooltipStyles="{ backgroundColor: 'red', borderColor: 'red' }"
+        @callbackRange="callbackRange"
+      />
     </div>
+
     <div class="time-slider">
       <div class="item-aligner">
         <p>Period</p>
-        <p>2Mth</p>
+        <p>{{time}} Months</p>
         <i>GI</i>
         <i>GI</i>
       </div>
-      <div class="slider">
-        <div class="slide-bar"></div>
-        <div class="slide-pin2"></div>
-      </div>
-    </div>-->
+      <VueSlideBar
+        v-model="time"
+        :min="1"
+        :max="16"
+        :processStyle="slider.processStyle"
+        :lineHeight="slider.lineHeight"
+        :tooltipStyles="{ backgroundColor: 'red', borderColor: 'red' }"
+      />
+    </div>
     <div class="day-picker"></div>
   </div>
 </template>
 
 <script>
-import VueSlideBar from 'vue-slide-bar'
+import VueSlideBar from "vue-slide-bar";
 
 export default {
   name: "Calculator",
@@ -60,9 +53,10 @@ export default {
       time: 7,
       styleTest: "transform: translate(" + translate_bar + "px,-15px)",
       slider: {
+        loanSteps: [100, 200, 300, 400, 500, 600, 700],
         lineHeight: 10,
         processStyle: {
-          backgroundColor: '#ffb700'
+          backgroundColor: "#ffb700"
         }
       }
     };
