@@ -3,7 +3,25 @@
     <div class="title">
       <p>João Alfredo</p>
     </div>
-    <div class="loan-slider">
+    <VueSlideBar
+      class="loan-slider" 
+      v-model="loan"
+      :min="100"
+      :max="700"
+      :processStyle="slider.processStyle"
+      :lineHeight="slider.lineHeight"
+      :tooltipStyles="{ backgroundColor: 'red', borderColor: 'red' }"
+      />
+    <VueSlideBar 
+      class="time-slider" 
+      v-model="time"
+      :min="1"
+      :max="16"
+      :processStyle="slider.processStyle"
+      :lineHeight="slider.lineHeight"
+      :tooltipStyles="{ backgroundColor: 'red', borderColor: 'red' }"
+      />
+    <!--<div class="loan-slider">
       <div class="item-aligner">
         <p>Amount</p>
         <p>$23</p>
@@ -26,17 +44,27 @@
         <div class="slide-bar"></div>
         <div class="slide-pin2"></div>
       </div>
-    </div>
+    </div>-->
     <div class="day-picker"></div>
   </div>
 </template>
 
 <script>
+import VueSlideBar from 'vue-slide-bar'
+
 export default {
   name: "Calculator",
   data() {
     return {
-      styleTest: "transform: translate(" + translate_bar + "px,-15px)"
+      loan: 500,
+      time: 7,
+      styleTest: "transform: translate(" + translate_bar + "px,-15px)",
+      slider: {
+        lineHeight: 10,
+        processStyle: {
+          backgroundColor: '#ffb700'
+        }
+      }
     };
   },
   methods: {
@@ -44,6 +72,9 @@ export default {
       this.translate_bar += 30;
       if (this.translate_bar > 160) this.translate_bar = -160;
     }
+  },
+  components: {
+    VueSlideBar
   }
 };
 
