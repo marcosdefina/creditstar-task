@@ -7,18 +7,16 @@
       <div class="item-aligner">
         <p>Amount</p>
         <p>{{loan}} €</p>
-        <i>GI</i>
-        <i>GI</i>
+        <i class="material-icons">add_circle</i>
+        <i class="material-icons">remove_circle</i>
       </div>
-      <VueSlideBar
+      <vue-slider
         v-model="loan"
-        :data="slider.loanSteps"
         :min="100"
         :max="700"
-        :processStyle="slider.processStyle"
         :lineHeight="slider.lineHeight"
-        :tooltipStyles="{ backgroundColor: 'red', borderColor: 'red' }"
-        @callbackRange="callbackRange"
+        :processStyle="slider.processStyle"
+        :tooltip-formatter="loanFormatter"
       />
     </div>
 
@@ -26,36 +24,47 @@
       <div class="item-aligner">
         <p>Period</p>
         <p>{{time}} Months</p>
-        <i>GI</i>
-        <i>GI</i>
+        <i class="material-icons">add_circle</i>
+        <i class="material-icons">remove_circle</i>
       </div>
-      <VueSlideBar
+      <vue-slider
         v-model="time"
         :min="1"
         :max="16"
-        :processStyle="slider.processStyle"
         :lineHeight="slider.lineHeight"
-        :tooltipStyles="{ backgroundColor: 'red', borderColor: 'red' }"
+        :processStyle="slider.processStyle"
       />
     </div>
-    <div class="day-picker"></div>
+    <div class="day-picker">
+      <i class="material-icons">date_range</i>
+      <datepicker style="
+          display: inline-block;
+          text-align: left;
+        " />Pick a Date
+    </div>
   </div>
 </template>
 
 <script>
-import VueSlideBar from "vue-slide-bar";
+import VueSlider from "vue-slider-component";
+import "vue-slider-component/theme/default.css";
+import Datepicker from "vuejs-datepicker";
 
 export default {
   name: "Calculator",
   data() {
     return {
+      value1: 0,
+      formatter1: "{value}%",
+      value2: 0,
+      loanFormatter: v => `€${("" + v).replace(/\B(?=(\d{3})+(?!\d))/g, ",")}`,
       loan: 500,
       time: 7,
       styleTest: "transform: translate(" + translate_bar + "px,-15px)",
       slider: {
-        loanSteps: [100, 200, 300, 400, 500, 600, 700],
         lineHeight: 10,
         processStyle: {
+          lineHeight: 10,
           backgroundColor: "#ffb700"
         }
       }
@@ -68,7 +77,8 @@ export default {
     }
   },
   components: {
-    VueSlideBar
+    VueSlider,
+    Datepicker
   }
 };
 
@@ -77,4 +87,7 @@ var translate_bar = -30;
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style src="./styles/calculator.css">
+.custom-tooltip.focus {
+  font-weight: bold;
+}
 </style>

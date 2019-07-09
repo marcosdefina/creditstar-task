@@ -1,9 +1,11 @@
 <template>
   <div id="app">
     <div class="nav">
+      <i class="material-icons">account_circle</i>
     </div>
 
     <Calculator></calculator>
+    
     <img id="logo" alt="logo" src="./assets/logo.svg">
     <Landing msg="Welcome to Credit Star"/>
   </div>
@@ -12,7 +14,7 @@
 <script>
 import Landing from "./components/Landing.vue";
 import Calculator from "./components/Calculator/Calculator.vue";
- 
+
 export default {
   name: "app",
   components: {
