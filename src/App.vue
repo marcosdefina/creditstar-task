@@ -1,9 +1,7 @@
 <template>
   <div id="app">
-    <div class="nav">
-      <i class="material-icons">account_circle</i>
-    </div>
 
+    <NavBar></NavBar>
     <Calculator></calculator>
     
     <img id="logo" alt="logo" src="./assets/logo.svg">
@@ -12,14 +10,16 @@
 </template>
 
 <script>
-import Landing from "./components/Landing.vue";
-import Calculator from "./components/Calculator/Calculator.vue";
+import Landing from "./Components/Landing.vue";
+import Calculator from "./Components/Calculator/Calculator.vue";
+import NavBar from "./Components/NavBar.vue";
 
 export default {
   name: "app",
   components: {
     Landing,
     Calculator,
+    NavBar,
   }
 };
 </script>
@@ -44,13 +44,6 @@ body, html{
   background-repeat: no-repeat;
   background-size: 1366px 768px
 }
-.nav {
-  background-color: #ffb700;
-  width: 100%;
-  height: 5vh;
-  box-shadow: 0 1px 4px 2px rgba(0,0,0,0.2);
-}
-
 
 @media screen {
 }
