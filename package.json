@@ -10,7 +10,11 @@
   "dependencies": {
     "core-js": "^2.6.5",
     "jquery": "^3.4.1",
-    "vue": "^2.6.10"
+    "material-design-icons": "^3.0.1",
+    "vue": "^2.6.10",
+    "vue-slide-bar": "^1.2.0",
+    "vue-slider-component": "^3.0.33",
+    "vuejs-datepicker": "^1.6.2"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.8.0",
