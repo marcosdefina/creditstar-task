@@ -1,0 +1,133 @@
+$default_height: 80%;
+$default_width: 80%;
+
+$orange: #f79a53;
+$lighter_grey: #eeefef;
+$medium_grey: #b6b6b5;
+$darker_grey: #9b9b9b;
+
+.calculator {
+  display: grid;
+  align-items: center;
+  height: 420px;
+  width: 80%;
+  margin: 5vh auto;
+  background-color: white;
+  box-shadow: 0 1px 4px 2px rgba(0, 0, 0, 0.2);
+  border-radius: 12px;
+
+  grid-template-rows: 10% 30% 30% 30%;
+  grid-template-columns: auto;
+}
+
+.title {
+  grid-row: 1;
+  text-align: center;
+  color: $orange;
+  background-color: $lighter_grey;
+  vertical-align: middle;
+  border-radius: 12px 12px 0 0;
+  margin: 0;
+  height: 100%;
+  width: 100%;
+}
+.loan-slider {
+  grid-row: 2;
+  margin: 1em 1em auto;
+  height: $default_height;
+  width: auto;
+}
+.time-slider {
+  grid-row: 3;
+  margin: 1em 1em auto;
+  height: $default_height;
+  width: auto;
+}
+.day-picker {
+  grid-row: 4;
+  background-color: blueviolet;
+  margin: auto;
+  height: $default_height;
+  width: $default_width;
+}
+.item-aligner{
+  display: grid;
+  grid-template-rows: auto;
+  grid-template-columns: 50% 30% 10% 10%;
+}
+
+.loan-slider p:nth-of-type(1) {
+  grid-column: 1;
+  grid-row: 1;
+  text-align: left;
+  font-family: Helvetica, sans-serif;
+  width: auto;
+  margin: 0;
+}
+
+.loan-slider p:nth-of-type(2) {
+  margin: auto;
+  grid-column: 2;
+  grid-row: 1;
+  text-align: left;
+}
+.time-slider p:nth-of-type(1) {
+  grid-column: 1;
+  grid-row: 1;
+  text-align: left;
+  font-family: Helvetica, sans-serif;
+  width: auto;
+  margin: 0;
+}
+
+.time-slider p:nth-of-type(2) {
+  margin: auto;
+  grid-column: 2;
+  grid-row: 1;
+  text-align: left;
+}
+@for $i from 1 through 2  {
+  i:nth-of-type(#{$i}){
+    grid-column: #{$i+2};
+    //color: red;
+  }
+}
+.slider{
+  transform: translate(0,20px);
+}
+.slide-bar{
+  height: 12px;
+  width: auto;
+  background-color: $darker_grey;
+  z-index: 0;
+}
+.slide-pin{
+  height: 18px;
+  margin: auto;
+  width: 24px;
+  background-color: #f79a53;
+  z-index: 1;
+  transform: translate(-80px,-15px)
+}
+
+.slide-pin2{
+  height: 18px;
+  margin: auto;
+  width: 24px;
+  background-color: #f79a53;
+  z-index: 1;
+  transform: translate(80px,-15px)
+}
+
+.slider2 {
+  width: 300px;
+  height: 300px;
+  display: flex;
+  overflow-x: auto;
+}
+.slide2 {
+  width: 300px;
+  flex-shrink: 0;
+  height: 100%;
+}
+
