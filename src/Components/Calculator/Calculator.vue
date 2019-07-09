@@ -20,7 +20,7 @@ export default {
         }
       },
 
-      pickedDay: new Date('02/07/2019'),
+      pickedDay: new Date('07/07/2019'),
       yearlyInterest: 0.25,
       totalAmountToPay: this.TotalToPay(this.loan, this.time, this.pickedDay),
     };
@@ -38,12 +38,19 @@ export default {
       if(this.formatDate(today) != this.formatDate(pickedDay))
         var dailyInterest = this.InterestConverter(this.yearlyInterest, 365.25);
       
-      return loan * (Math.pow(monthlyInterest, months))// + (Math.pow(dailyInterest, this.dayModule(today, pickedDay))));
+      //Aiming in the readability
+      var totalMonthlyInterest = Math.pow(monthlyInterest, months);
+      var numberOfDays = this.dayModule(today, pickedDay); //days between the starting of the loan until the first instalment
+      var totalDailyInterest = Math.pow(dailyInterest, numberOfDays)-1;
+      
+      var result = loan * (totalMonthlyInterest + totalDailyInterest);
+
+      return result;
     },
     formatDate: function(date = new Date()){
       return (date.getMonth()+1)+'/'+date.getDate()+'/'+date.getFullYear();
     },
-    dayModule: function(date1 = new Date(), date2  = new Date('01/01/2001')){
+    dayModule: function(date1 = new Date(), date2  = new Date()){
       const diffTime = Math.abs(date2.getTime() - date1.getTime());
       return Math.ceil(diffTime / (1000 * 60 * 60 * 24));
       //We could to discretize more and more until get fair.
