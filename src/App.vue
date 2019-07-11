@@ -6,9 +6,10 @@
       <div uk-grid data-uk-grid-margin>
         <Calculator class="uk-width-1-3@l"></calculator>
       </div>
+      <img id="logo" alt="logo" src="./assets/logo.svg">
     </div>
-    <img id="logo" alt="logo" src="./assets/logo.svg">
     <Landing msg="Welcome to Credit Star"/>
+
   </div>
 </template>
 

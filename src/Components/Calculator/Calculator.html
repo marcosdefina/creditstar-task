@@ -48,7 +48,8 @@
       </div>
       <div class="instalments-wrapper uk-width-1-1@s uk-width-1-2@l">
         <li class=" uk-margin-remove uk-container uk-container-center" uk-grid>
-            <ul class="uk-width-1-2@l uk-margin-remove uk-padding-auto instalment" v-for="instalment, i in this.time < 8 ? Array(this.time).keys() : Array(8).keys()">
+            <ul class="uk-width-1-2@l uk-margin-remove uk-padding-auto instalment"
+             v-for="instalment, i in this.time < 8 ? Array(this.time).keys() : Array(8).keys()">
               {{pickedDay.getDate()}}/{{pickedDay.getMonth()+i+1}}/{{pickedDay.getFullYear()}} - 
               € {{ Math.round((total/time)*100)/100 }}
           </ul>
