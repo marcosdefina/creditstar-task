@@ -14,15 +14,14 @@ export default {
       loan: 500,
       time: 7,
       slider: {
-        lineHeight: 10,
         processStyle: {
           backgroundColor: "#ffb700"
         }
       },
-
-      pickedDay: new Date('07/07/2019'),
+      pickedDay: new Date(),
       yearlyInterest: 0.25,
       totalAmountToPay: this.TotalToPay(this.loan, this.time, this.pickedDay),
+      instalments: this.generalteListOfInstalments(),
     };
   },
   methods: {
@@ -35,8 +34,7 @@ export default {
 
       var monthlyInterest = this.InterestConverter(this.yearlyInterest, 12);
       
-      if(this.formatDate(today) != this.formatDate(pickedDay))
-        var dailyInterest = this.InterestConverter(this.yearlyInterest, 365.25);
+      var dailyInterest = this.InterestConverter(this.yearlyInterest, 365.25);
       
       //Aiming in the readability
       var totalMonthlyInterest = Math.pow(monthlyInterest, months);
@@ -57,6 +55,15 @@ export default {
       //But will never be fair until the discretization takes the limit to a continuous interval.
       //So lets round up.
     },
+    generalteListOfInstalments(){
+      var list = [];
+      var totalToPay = this.TotalToPay(this.loan, this.time, this.pickedDay);
+      for(instalment in Array(this.time).keys()){
+        list.push(totalToPay/this.time);
+      }
+      console.log(list)
+      return list;
+    }
   },
   components: {
     VueSlider,

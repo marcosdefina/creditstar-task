@@ -46,14 +46,6 @@
   width: auto;
 }
 
-.day-picker {
-  -ms-grid-row: 4;
-  grid-row: 4;
-  background-color: blueviolet;
-  margin: auto;
-  height: 80%;
-  width: 80%;
-}
 
 .item-aligner {
   display: -ms-grid;
@@ -148,7 +140,7 @@ i:nth-of-type(2) {
 
 .slider2 {
   width: 300px;
-  height: 300px;
+  height: 200px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -162,3 +154,33 @@ i:nth-of-type(2) {
   height: 100%;
 }
 /*# sourceMappingURL=calculator.css.map */
+
+
+.day-picker {
+  -ms-grid-row: 4;
+  grid-row: 4;
+  margin: auto;
+  height: 100%;
+  width: 100%;
+}
+
+.date-picker-grid{
+  display: -ms-grid;
+  display: grid;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  
+  -ms-grid-rows: auto;
+      grid-template-rows: auto;
+  -ms-grid-columns: 50% 50%;
+      grid-template-columns: 50% 50%;
+}
+
+.date-picker-wrapper{
+  grid-column: 1;
+}
+
+.instalments-wrapeer{
+  grid-column: 2;
+}
