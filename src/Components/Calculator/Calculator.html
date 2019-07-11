@@ -1,13 +1,13 @@
 <div class="calculator uk-container uk-container-center" uk-grid>
-  <div class="title uk-width-1-1">
-    <p>João Alfredo</p>
+  <div class="title uk-width-1-1 uk-margin-remove uk-padding-remove" >
+    <p style="margin-top: 10px">João Alfredo</p>
   </div>
-  <div class="loan-slider uk-width-1-1 uk-margin-remove">
+  <div class="loan-slider uk-width-1-1 uk-padding-small">
     <div class="item-aligner">
       <p>Amount</p>
       <p>{{loan}} €</p>
-      <i class="material-icons">add_circle</i>
-      <i class="material-icons">remove_circle</i>
+      <i class="material-icons" style="cursor: pointer" v-on:click="buttonHandler('loan', 100)">add_circle</i>
+      <i class="material-icons" style="cursor: pointer" v-on:click="buttonHandler('loan', -100)">remove_circle</i>
     </div>
     <vue-slider
       v-model="loan"
@@ -18,12 +18,12 @@
     />
   </div>
 
-  <div class="time-slider uk-width-1-1 uk-margin-remove">
+  <div class="time-slider uk-width-1-1 uk-margin-remove  uk-padding-small">
     <div class="item-aligner">
       <p>Period</p>
       <p>{{time}} Months</p>
-      <i class="material-icons">add_circle</i>
-      <i class="material-icons">remove_circle</i>
+      <i class="material-icons" style="cursor: pointer" v-on:click="buttonHandler('time', 1)">add_circle</i>
+      <i class="material-icons" style="cursor: pointer" v-on:click="buttonHandler('time', -1)">remove_circle</i>
     </div>
     <vue-slider
       v-model="time"
@@ -34,7 +34,7 @@
   </div>
   <div class="day-picker uk-width-1-1 uk-margin-remove">
     <div class="date-picker-grid uk-container uk-container-center" uk-grid>
-      <div class="date-picker-wrapper uk-width-1-2 uk-container uk-container-center" uk-grid>
+      <div class="date-picker-wrapper uk-width-1-2@l uk-width-1-1@s uk-container uk-container-center" uk-grid>
         <i class="material-icons">date_range</i>
         Pick a Date
         <datepicker class="uk-width-1-2 uk-margin-remove"
@@ -46,28 +46,13 @@
           " />
           <p class="uk-width-1-1 uk-padding-auto uk-center">Total to Pay: € {{total = Math.round(TotalToPay(loan, time, pickedDay)*100)/100 }}</p>
       </div>
-      <div class="instalments-wrapperuk-container uk-container-center uk-margin-remove" uk-grid>
-        <li class="uk-width-1-2 uk-margin-remove">
-            <ul v-for="instalment, i in this.time < 6 ? Array(this.time).keys() : Array(8).keys()" class="instalment">
+      <div class="instalments-wrapper uk-width-1-1@s uk-width-1-2@l">
+        <li class=" uk-margin-remove uk-container uk-container-center" uk-grid>
+            <ul class="uk-width-1-2@l uk-margin-remove uk-padding-auto instalment" v-for="instalment, i in this.time < 8 ? Array(this.time).keys() : Array(8).keys()">
               {{pickedDay.getDate()}}/{{pickedDay.getMonth()+i+1}}/{{pickedDay.getFullYear()}} - 
               € {{ Math.round((total/time)*100)/100 }}
           </ul>
         </li> 
-        
-        <li class="uk-width-1-2 uk-margin-auto uk-padding-remove">
-            <ul v-for="instalment, i in this.time < 6 ? Array(this.time).keys() : Array(8).keys()" class="instalment">
-              {{pickedDay.getDate()}}/{{pickedDay.getMonth()+i+1}}/{{pickedDay.getFullYear()}} - 
-              € {{ Math.round((total/time)*100)/100 }}
-          </ul>
-        </li> 
-        <!--FIX LATER--> <!--
-        <li class="uk-width-1-2 uk-margin-remove">
-            <ul v-for="instalment in this.time > 6 ? [...Array(this.time+1).keys()].slice(8, this.time+1) : 0" class="instalment">
-              {{pickedDay.getDate()}}/{{pickedDay.getMonth()+instalment+1}}/{{pickedDay.getFullYear()}} - 
-              € {{ Math.round((total/time)*100)/100 }}
-          </ul>
-        </li> 
-          FIX LATER-->
       </div>
     </div>
   </div>

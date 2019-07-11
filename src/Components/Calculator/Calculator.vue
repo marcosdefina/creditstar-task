@@ -60,7 +60,7 @@ export default {
       //But will never be fair until the discretization takes the limit to a continuous interval.
       //So lets round up.
     },
-    generalteListOfInstalments(){
+    generalteListOfInstalments: function(){
       var list = [];
       var totalToPay = this.TotalToPay(this.loan, this.time, this.pickedDay);
       for(instalment in Array(this.time).keys()){
@@ -68,7 +68,11 @@ export default {
       }
       console.log(list)
       return list;
-    }
+    },
+    buttonHandler: function(object, increment){
+      if(object == 'loan') this.loan += increment
+      if(object == 'time') this.time += increment
+    },
   },
   components: {
     VueSlider,
