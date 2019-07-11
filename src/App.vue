@@ -45,7 +45,7 @@ body, html{
   background-color: #f5f5f5;
   background-image: url("./assets/images/city.jpg");
   background-repeat: no-repeat;
-  background-size: 1366px 768px
+  background-size: cover;
 }
 
 @media screen {
