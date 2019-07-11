@@ -22,6 +22,11 @@ export default {
       yearlyInterest: 0.25,
       totalAmountToPay: this.TotalToPay(this.loan, this.time, this.pickedDay),
       instalments: this.generalteListOfInstalments(),
+      date:{
+        disabledDates:{
+          to: new Date(),
+        }
+      }
     };
   },
   methods: {

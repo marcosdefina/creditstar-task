@@ -39,18 +39,25 @@
         Pick a Date
         <datepicker
          v-model="pickedDay"
+         :disabled-dates="date.disabledDates"
          style="
             display: inline-flex;
             text-align: left;
           " />
-          <p>Total to Pay: € {{total = Math.round(TotalToPay(loan, time, pickedDay)*100)/100}}</p>
+          <p>Total to Pay: € {{total = Math.round(TotalToPay(loan, time, pickedDay)*100)/100 }}</p>
       </div>
       <div class="instalments-wrapper">
-        <li v-for="instalment, i in Array(this.time).keys()" class="instalment">
-          {{pickedDay.getMonth()+i+1}}/
-          {{pickedDay.getDate()}}/
-          {{pickedDay.getFullYear()}} - 
-          € {{ Math.round((total/time)*100)/100 }}
+        <li>
+            <ul v-for="instalment, i in this.time < 9 ? Array(this.time).keys() : Array(8).keys()" class="instalment">
+              {{pickedDay.getDate()}}/{{pickedDay.getMonth()+i+1}}/{{pickedDay.getFullYear()}} - 
+              € {{ Math.round((total/time)*100)/100 }}
+          </ul>
+        </li> 
+        <li v-if="this.time > 8">JOAO
+            <ul v-for="instalment in this.time > 8 ? [...Array(this.time+1).keys()].slice(8, this.time+1) : 0" class="instalment">
+              {{pickedDay.getDate()}}/{{pickedDay.getMonth()+instalment+1}}/{{pickedDay.getFullYear()}} - 
+              € {{ Math.round((total/time)*100)/100 }}
+          </ul>
         </li> 
       </div>
     </div>
