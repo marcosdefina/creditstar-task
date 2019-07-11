@@ -1,44 +1,60 @@
-<div class="calculator">
-  <div class="title">
-    <p>João Alfredo</p>
+<div class="calculator uk-container uk-container-center" uk-grid>
+  <div class="title uk-width-1-1 uk-margin-remove uk-padding-remove" >
+    <p style="margin-top: 10px">João Alfredo</p>
   </div>
-  <div class="loan-slider">
+  <div class="loan-slider uk-width-1-1 uk-padding-small">
     <div class="item-aligner">
       <p>Amount</p>
       <p>{{loan}} €</p>
-      <i class="material-icons">add_circle</i>
-      <i class="material-icons">remove_circle</i>
+      <i class="material-icons" style="cursor: pointer" v-on:click="buttonHandler('loan', 100)">add_circle</i>
+      <i class="material-icons" style="cursor: pointer" v-on:click="buttonHandler('loan', -100)">remove_circle</i>
     </div>
     <vue-slider
       v-model="loan"
       :min="100"
       :max="700"
-      :lineHeight="slider.lineHeight"
       :processStyle="slider.processStyle"
       :tooltip-formatter="loanFormatter"
     />
   </div>
 
-  <div class="time-slider">
+  <div class="time-slider uk-width-1-1 uk-margin-remove  uk-padding-small">
     <div class="item-aligner">
       <p>Period</p>
       <p>{{time}} Months</p>
-      <i class="material-icons">add_circle</i>
-      <i class="material-icons">remove_circle</i>
+      <i class="material-icons" style="cursor: pointer" v-on:click="buttonHandler('time', 1)">add_circle</i>
+      <i class="material-icons" style="cursor: pointer" v-on:click="buttonHandler('time', -1)">remove_circle</i>
     </div>
     <vue-slider
       v-model="time"
       :min="1"
-      :max="16"
-      :lineHeight="slider.lineHeight"
+      :max="10"
       :processStyle="slider.processStyle"
     />
   </div>
-  <div class="day-picker">
-    <i class="material-icons">date_range</i>
-    <datepicker style="
-        display: inline-block;
-        text-align: left;
-      " />Pick a Date
+  <div class="day-picker uk-width-1-1 uk-margin-remove">
+    <div class="date-picker-grid uk-container uk-container-center" uk-grid>
+      <div class="date-picker-wrapper uk-width-1-2@l uk-width-1-1@s uk-container uk-container-center" uk-grid>
+        <i class="material-icons">date_range</i>
+        Pick a Date
+        <datepicker class="uk-width-1-2 uk-margin-remove"
+         v-model="pickedDay"
+         :disabled-dates="date.disabledDates"
+         style="
+            display: inline-flex;
+            text-align: left;
+          " />
+          <p class="uk-width-1-1 uk-padding-auto uk-center">Total to Pay: € {{total = Math.round(TotalToPay(loan, time, pickedDay)*100)/100 }}</p>
+      </div>
+      <div class="instalments-wrapper uk-width-1-1@s uk-width-1-2@l">
+        <li class=" uk-margin-remove uk-container uk-container-center" uk-grid>
+            <ul class="uk-width-1-2@l uk-margin-remove uk-padding-auto instalment"
+             v-for="instalment, i in this.time < 8 ? Array(this.time).keys() : Array(8).keys()">
+              {{pickedDay.getDate()}}/{{pickedDay.getMonth()+i+1}}/{{pickedDay.getFullYear()}} - 
+              € {{ Math.round((total/time)*100)/100 }}
+          </ul>
+        </li> 
+      </div>
+    </div>
   </div>
 </div>

@@ -2,10 +2,14 @@
   <div id="app">
 
     <NavBar></NavBar>
-    <Calculator></calculator>
-    
-    <img id="logo" alt="logo" src="./assets/logo.svg">
+    <div class="uk-container uk-container-center">
+      <div uk-grid data-uk-grid-margin>
+        <Calculator class="uk-width-1-3@l"></calculator>
+      </div>
+      <img id="logo" alt="logo" src="./assets/logo.svg">
+    </div>
     <Landing msg="Welcome to Credit Star"/>
+
   </div>
 </template>
 
@@ -42,7 +46,7 @@ body, html{
   background-color: #f5f5f5;
   background-image: url("./assets/images/city.jpg");
   background-repeat: no-repeat;
-  background-size: 1366px 768px
+  background-size: cover;
 }
 
 @media screen {
