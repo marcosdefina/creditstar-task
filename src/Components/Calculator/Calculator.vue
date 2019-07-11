@@ -12,7 +12,7 @@ export default {
       value2: 0,
       loanFormatter: v => `€${("" + v).replace(/\B(?=(\d{3})+(?!\d))/g, ",")}`,
       loan: 500,
-      time: 7,
+      time: 3,
       slider: {
         processStyle: {
           backgroundColor: "#ffb700"

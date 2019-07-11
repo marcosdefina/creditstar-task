@@ -1,8 +1,8 @@
-<div class="calculator">
-  <div class="title">
+<div class="calculator uk-container uk-container-center" uk-grid>
+  <div class="title uk-width-1-1">
     <p>João Alfredo</p>
   </div>
-  <div class="loan-slider">
+  <div class="loan-slider uk-width-1-1 uk-margin-remove">
     <div class="item-aligner">
       <p>Amount</p>
       <p>{{loan}} €</p>
@@ -18,7 +18,7 @@
     />
   </div>
 
-  <div class="time-slider">
+  <div class="time-slider uk-width-1-1 uk-margin-remove">
     <div class="item-aligner">
       <p>Period</p>
       <p>{{time}} Months</p>
@@ -28,37 +28,46 @@
     <vue-slider
       v-model="time"
       :min="1"
-      :max="16"
+      :max="10"
       :processStyle="slider.processStyle"
     />
   </div>
-  <div class="day-picker">
-    <div class="date-picker-grid">
-      <div class="date-picker-wrapper">
+  <div class="day-picker uk-width-1-1 uk-margin-remove">
+    <div class="date-picker-grid uk-container uk-container-center" uk-grid>
+      <div class="date-picker-wrapper uk-width-1-2 uk-container uk-container-center" uk-grid>
         <i class="material-icons">date_range</i>
         Pick a Date
-        <datepicker
+        <datepicker class="uk-width-1-2 uk-margin-remove"
          v-model="pickedDay"
          :disabled-dates="date.disabledDates"
          style="
             display: inline-flex;
             text-align: left;
           " />
-          <p>Total to Pay: € {{total = Math.round(TotalToPay(loan, time, pickedDay)*100)/100 }}</p>
+          <p class="uk-width-1-1 uk-padding-auto uk-center">Total to Pay: € {{total = Math.round(TotalToPay(loan, time, pickedDay)*100)/100 }}</p>
       </div>
-      <div class="instalments-wrapper">
-        <li>
-            <ul v-for="instalment, i in this.time < 9 ? Array(this.time).keys() : Array(8).keys()" class="instalment">
+      <div class="instalments-wrapperuk-container uk-container-center" uk-grid>
+        <li class="uk-width-1-2 uk-margin-remove">
+            <ul v-for="instalment, i in this.time < 6 ? Array(this.time).keys() : Array(8).keys()" class="instalment">
               {{pickedDay.getDate()}}/{{pickedDay.getMonth()+i+1}}/{{pickedDay.getFullYear()}} - 
               € {{ Math.round((total/time)*100)/100 }}
           </ul>
         </li> 
-        <li v-if="this.time > 8">JOAO
-            <ul v-for="instalment in this.time > 8 ? [...Array(this.time+1).keys()].slice(8, this.time+1) : 0" class="instalment">
+        <li class="uk-width-1-2 uk-margin-auto uk-padding-remove">
+            <ul v-for="instalment, i in this.time < 6 ? Array(this.time).keys() : Array(8).keys()" class="instalment">
+              {{pickedDay.getDate()}}/{{pickedDay.getMonth()+i+1}}/{{pickedDay.getFullYear()}} - 
+              € {{ Math.round((total/time)*100)/100 }}
+          </ul>
+        </li> 
+        <!--FIX LATER--> <!--
+        <li class="uk-width-1-2 uk-margin-remove">
+            <ul v-for="instalment in this.time > 6 ? [...Array(this.time+1).keys()].slice(8, this.time+1) : 0" class="instalment">
               {{pickedDay.getDate()}}/{{pickedDay.getMonth()+instalment+1}}/{{pickedDay.getFullYear()}} - 
               € {{ Math.round((total/time)*100)/100 }}
           </ul>
         </li> 
+        <!--FIX LATER-->
+
       </div>
     </div>
   </div>

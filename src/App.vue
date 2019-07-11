@@ -2,8 +2,11 @@
   <div id="app">
 
     <NavBar></NavBar>
-    <Calculator></calculator>
-    
+    <div class="uk-container uk-container-center">
+      <div uk-grid data-uk-grid-margin>
+        <Calculator class="uk-width-1-3@l"></calculator>
+      </div>
+    </div>
     <img id="logo" alt="logo" src="./assets/logo.svg">
     <Landing msg="Welcome to Credit Star"/>
   </div>
