@@ -23,6 +23,16 @@
       > npm run build 
    - Or run the development build, if you want:
       > npm run serve
+      
+# Issues
+ - No navbar buttons and modals
+ - No footer (but come on, footer is dying in the new design trends)
+ 
+I tryed all the time to build from scratch, all the grid logic in css and sass, but near to the deadline I had to change my plans and work faster.
+
+I installed UI Kit, where I could make it responsible, but didn't have time to remove all the grid I had done, so, the mobile layout is broken right now.
+
+I have other tasks to do this weekend, and other next week, so I'm sorry, I cannot work on it more, I hope the commit history can show you I could handle it in short work time, I could change from framework to framework without having too much truble to learn it and undertand it quickly.
 
 # Final considerations
 Hope with this you can judge my capabilities to quickly learn new frameworks, and develop.
