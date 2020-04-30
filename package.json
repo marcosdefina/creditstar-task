@@ -9,7 +9,7 @@
   },
   "dependencies": {
     "core-js": "^2.6.5",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "material-design-icons": "^3.0.1",
     "vue": "^2.6.10",
     "vue-slide-bar": "^1.2.0",
